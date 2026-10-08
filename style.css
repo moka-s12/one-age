@@ -1,0 +1,1008 @@
+/* ========================================
+   ONE AGENCY
+   Application Form
+======================================== */
+
+:root {
+  --black: #090909;
+  --black-soft: #111111;
+  --black-card: #161616;
+
+  --gold: #c8a45d;
+  --gold-light: #e2c886;
+  --gold-dark: #927039;
+
+  --white: #ffffff;
+  --text: #f4f1ea;
+  --text-soft: #aaa69d;
+  --border: rgba(200, 164, 93, 0.24);
+
+  --error: #e28484;
+
+  --radius: 16px;
+  --radius-small: 11px;
+}
+
+
+/* ========================================
+   RESET
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(200, 164, 93, 0.08),
+      transparent 28rem
+    ),
+    var(--black);
+
+  color: var(--text);
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Hiragino Sans",
+    "Yu Gothic",
+    "YuGothic",
+    "Noto Sans JP",
+    sans-serif;
+
+  line-height: 1.7;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+
+/* ========================================
+   APP
+======================================== */
+
+.app {
+  width: min(100%, 680px);
+  min-height: 100vh;
+
+  margin: 0 auto;
+
+  padding:
+    calc(34px + env(safe-area-inset-top))
+    20px
+    calc(50px + env(safe-area-inset-bottom));
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.header {
+  text-align: center;
+  padding: 16px 0 28px;
+}
+
+.brand-mark {
+  color: var(--gold-light);
+  font-size: 22px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.brand-sub {
+  margin: 0 0 3px;
+
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 0.28em;
+}
+
+.header h1 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(27px, 8vw, 36px);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
+.gold-line {
+  width: 46px;
+  height: 1px;
+
+  margin: 17px auto 14px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold-light),
+      transparent
+    );
+}
+
+.header-title {
+  margin: 0;
+
+  color: var(--text-soft);
+
+  font-size: 12px;
+  letter-spacing: 0.15em;
+}
+
+
+/* ========================================
+   PROGRESS
+======================================== */
+
+.progress-wrap {
+  display: flex;
+  align-items: flex-start;
+
+  margin: 4px 0 38px;
+}
+
+.progress-item {
+  flex: 0 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-width: 42px;
+
+  color: #625e56;
+
+  transition: 0.25s ease;
+}
+
+.progress-item span {
+  display: grid;
+  place-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  border: 1px solid #393630;
+  border-radius: 50%;
+
+  background: var(--black);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 11px;
+
+  transition: 0.25s ease;
+}
+
+.progress-item small {
+  margin-top: 6px;
+
+  font-size: 8px;
+  white-space: nowrap;
+}
+
+.progress-item.active,
+.progress-item.completed {
+  color: var(--gold-light);
+}
+
+.progress-item.active span {
+  border-color: var(--gold);
+  box-shadow:
+    0 0 0 4px rgba(200, 164, 93, 0.06);
+}
+
+.progress-item.completed span {
+  border-color: var(--gold-dark);
+  background: rgba(200, 164, 93, 0.1);
+}
+
+.progress-line {
+  flex: 1;
+
+  height: 1px;
+
+  margin: 16px 5px 0;
+
+  background: #302e29;
+}
+
+
+/* ========================================
+   STEPS
+======================================== */
+
+.step {
+  display: none;
+  animation: fadeUp 0.3s ease;
+}
+
+.step.active {
+  display: block;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.step-heading {
+  margin-bottom: 30px;
+}
+
+.step-number {
+  margin: 0 0 7px;
+
+  color: var(--gold);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+
+.step-heading h2,
+.result-card h2,
+.complete-card h2 {
+  margin: 0;
+
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.step-description {
+  margin: 12px 0 0;
+
+  color: var(--text-soft);
+
+  font-size: 13px;
+}
+
+.step-description strong {
+  color: var(--gold-light);
+}
+
+
+/* ========================================
+   QUESTION / FIELD
+======================================== */
+
+.question-block,
+.field {
+  margin-bottom: 30px;
+}
+
+.question-title,
+.field > label {
+  display: block;
+
+  margin-bottom: 11px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.required,
+.optional {
+  display: inline-block;
+
+  margin-left: 6px;
+  padding: 1px 6px;
+
+  border-radius: 100px;
+
+  font-size: 9px;
+  font-weight: 500;
+
+  vertical-align: 2px;
+}
+
+.required {
+  border: 1px solid rgba(200, 164, 93, 0.4);
+  color: var(--gold-light);
+}
+
+.optional {
+  border: 1px solid #393939;
+  color: #888;
+}
+
+.field-note {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #85817a;
+
+  font-size: 10px;
+}
+
+
+/* ========================================
+   TEXT INPUT
+======================================== */
+
+input[type="text"],
+textarea {
+  width: 100%;
+
+  border: 1px solid #2e2c29;
+  border-radius: var(--radius-small);
+
+  outline: none;
+
+  background: #11110f;
+  color: var(--white);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input[type="text"] {
+  height: 52px;
+  padding: 0 15px;
+}
+
+textarea {
+  min-height: 135px;
+
+  padding: 14px 15px;
+
+  resize: vertical;
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder {
+  color: #65615b;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: var(--gold-dark);
+
+  box-shadow:
+    0 0 0 3px rgba(200, 164, 93, 0.06);
+}
+
+
+/* ========================================
+   RADIO CARDS
+======================================== */
+
+.choice-list {
+  display: grid;
+  gap: 9px;
+}
+
+.select-card {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  min-height: 69px;
+
+  margin-bottom: 10px;
+  padding: 13px 15px;
+
+  border: 1px solid #2d2b27;
+  border-radius: var(--radius);
+
+  background:
+    linear-gradient(
+      135deg,
+      #141412,
+      #10100f
+    );
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.select-card.compact {
+  min-height: 55px;
+  margin-bottom: 0;
+}
+
+.select-card:active {
+  transform: scale(0.99);
+}
+
+.select-card input {
+  position: absolute;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.radio-ui {
+  position: relative;
+
+  flex: 0 0 auto;
+
+  width: 20px;
+  height: 20px;
+
+  margin-right: 13px;
+
+  border: 1px solid #5b574e;
+  border-radius: 50%;
+
+  transition: 0.2s ease;
+}
+
+.radio-ui::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 4px;
+
+  border-radius: 50%;
+
+  background: var(--gold-light);
+
+  transform: scale(0);
+
+  transition: transform 0.2s ease;
+}
+
+.select-card:has(input:checked) {
+  border-color: var(--gold-dark);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(200, 164, 93, 0.11),
+      #11110f
+    );
+}
+
+.select-card input:checked + .radio-ui {
+  border-color: var(--gold-light);
+}
+
+.select-card input:checked + .radio-ui::after {
+  transform: scale(1);
+}
+
+.select-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.select-text strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.select-text small {
+  margin-top: 1px;
+
+  color: var(--text-soft);
+  font-size: 10px;
+}
+
+
+/* ========================================
+   CHECKBOX CARDS
+======================================== */
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px;
+
+  margin-top: 13px;
+}
+
+.check-card {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  min-height: 58px;
+
+  padding: 10px;
+
+  border: 1px solid #2d2b27;
+  border-radius: 12px;
+
+  background: #11110f;
+
+  color: #c9c5bc;
+
+  text-align: center;
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.check-card input {
+  position: absolute;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.check-card:has(input:checked) {
+  border-color: var(--gold-dark);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(200, 164, 93, 0.15),
+      rgba(200, 164, 93, 0.04)
+    );
+
+  color: var(--gold-light);
+}
+
+
+/* ========================================
+   AGREEMENT
+======================================== */
+
+.agreement-card {
+  display: flex;
+  align-items: flex-start;
+
+  padding: 16px;
+
+  border: 1px solid #302e2a;
+  border-radius: var(--radius-small);
+
+  background: #11110f;
+
+  color: #d2cec5;
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.agreement-card input {
+  position: absolute;
+
+  opacity: 0;
+}
+
+.checkbox-ui {
+  position: relative;
+
+  flex: 0 0 auto;
+
+  width: 19px;
+  height: 19px;
+
+  margin: 1px 11px 0 0;
+
+  border: 1px solid #5a554c;
+  border-radius: 4px;
+
+  transition: 0.2s ease;
+}
+
+.checkbox-ui::after {
+  content: "✓";
+
+  position: absolute;
+
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #090909;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  opacity: 0;
+}
+
+.agreement-card:has(input:checked) {
+  border-color: var(--gold-dark);
+}
+
+.agreement-card input:checked + .checkbox-ui {
+  border-color: var(--gold-light);
+  background: var(--gold-light);
+}
+
+.agreement-card input:checked + .checkbox-ui::after {
+  opacity: 1;
+}
+
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.button-row {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: 10px;
+
+  margin-top: 35px;
+}
+
+.primary-button,
+.secondary-button {
+  min-height: 54px;
+
+  border-radius: 12px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.primary-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: 100%;
+
+  border: 1px solid #d5b871;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e0c47e,
+      #a98340
+    );
+
+  color: #0a0907;
+
+  text-decoration: none;
+}
+
+.secondary-button {
+  border: 1px solid #33312d;
+
+  background: transparent;
+
+  color: #aaa69d;
+}
+
+.primary-button:active,
+.secondary-button:active {
+  transform: scale(0.985);
+}
+
+.primary-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* ========================================
+   ERROR
+======================================== */
+
+.error-message {
+  min-height: 0;
+
+  margin: 7px 0 0;
+
+  color: var(--error);
+
+  font-size: 10px;
+}
+
+.field.has-error input[type="text"],
+.field.has-error textarea {
+  border-color: rgba(226, 132, 132, 0.7);
+}
+
+
+/* ========================================
+   CONFIRMATION
+======================================== */
+
+.confirmation-card {
+  overflow: hidden;
+
+  margin-bottom: 20px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(200, 164, 93, 0.07),
+      rgba(255, 255, 255, 0.015)
+    );
+}
+
+.confirm-row {
+  padding: 14px 16px;
+
+  border-bottom: 1px solid #292722;
+}
+
+.confirm-row:last-child {
+  border-bottom: none;
+}
+
+.confirm-label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--gold);
+
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.confirm-value {
+  color: #e5e1d8;
+
+  font-size: 12px;
+
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+
+/* ========================================
+   RESULT / COMPLETE
+======================================== */
+
+.result-card,
+.complete-card {
+  padding: 37px 20px;
+
+  border: 1px solid var(--border);
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(200, 164, 93, 0.08),
+      rgba(255, 255, 255, 0.015)
+    );
+
+  text-align: center;
+}
+
+.result-icon,
+.complete-mark {
+  display: grid;
+  place-items: center;
+
+  width: 54px;
+  height: 54px;
+
+  margin: 0 auto 23px;
+
+  border: 1px solid var(--gold-dark);
+  border-radius: 50%;
+
+  color: var(--gold-light);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 22px;
+}
+
+.result-card p:not(.step-number),
+.complete-card p:not(.step-number) {
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+.complete-divider {
+  width: 50px;
+  height: 1px;
+
+  margin: 25px auto;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+}
+
+.interview-button {
+  margin-top: 22px;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.footer {
+  margin-top: 55px;
+
+  text-align: center;
+
+  color: #68645d;
+}
+
+.footer-line {
+  width: 40px;
+  height: 1px;
+
+  margin: 0 auto 16px;
+
+  background: #39352e;
+}
+
+.footer strong {
+  color: #8e8064;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+}
+
+.footer p {
+  margin: 4px 0 0;
+
+  font-size: 9px;
+}
+
+
+/* ========================================
+   UTILITY
+======================================== */
+
+.hidden {
+  display: none !important;
+}
+
+
+/* ========================================
+   DESKTOP
+======================================== */
+
+@media (min-width: 700px) {
+
+  .app {
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+
+  .header {
+    padding-top: 25px;
+  }
+
+  .step-heading h2,
+  .result-card h2,
+  .complete-card h2 {
+    font-size: 28px;
+  }
+
+  .checkbox-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* ========================================
+   VERY SMALL PHONE
+======================================== */
+
+@media (max-width: 370px) {
+
+  .app {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .progress-item small {
+    font-size: 7px;
+  }
+
+  .progress-line {
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 生年月日 */
+
+input[type="date"] {
+  width: 100%;
+  height: 52px;
+
+  padding: 0 15px;
+
+  border: 1px solid #2e2c29;
+  border-radius: var(--radius-small);
+
+  outline: none;
+
+  background: #11110f;
+  color: var(--white);
+
+  color-scheme: dark;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input[type="date"]:focus {
+  border-color: var(--gold-dark);
+
+  box-shadow:
+    0 0 0 3px rgba(200, 164, 93, 0.06);
+}
+
+.age-confirm-text {
+  margin: 0 0 13px;
+  line-height: 1.9;
+}
+

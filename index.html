@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#0b0b0b">
+
+  <title>所属応募フォーム｜ONE AGENCY</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="app">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <header class="header">
+      <div class="brand-mark">✦</div>
+
+      <p class="brand-sub">LIVE STREAMER AGENCY</p>
+
+      <h1>ONE AGENCY</h1>
+
+      <div class="gold-line"></div>
+
+      <p class="header-title">所属応募フォーム</p>
+    </header>
+
+
+    <!-- =========================
+         PROGRESS
+    ========================== -->
+    <div class="progress-wrap" id="progressWrap">
+
+      <div class="progress-item active" data-progress="1">
+        <span>01</span>
+        <small>年齢確認</small>
+      </div>
+
+      <div class="progress-line"></div>
+
+      <div class="progress-item" data-progress="2">
+        <span>02</span>
+        <small>基本情報</small>
+      </div>
+
+      <div class="progress-line"></div>
+
+      <div class="progress-item" data-progress="3">
+        <span>03</span>
+        <small>活動</small>
+      </div>
+
+      <div class="progress-line"></div>
+
+      <div class="progress-item" data-progress="4">
+        <span>04</span>
+        <small>確認</small>
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         FORM
+    ========================== -->
+    <form id="applicationForm" novalidate>
+
+
+     <!-- =========================
+     STEP 01
+     年齢確認
+========================== -->
+<section class="step active" id="step1">
+
+  <div class="step-heading">
+    <p class="step-number">STEP 01</p>
+    <h2>年齢確認</h2>
+
+    <p class="step-description">
+      ONE AGENCYへの所属応募は、
+      <strong>18歳以上</strong>の方を対象としています。
+    </p>
+  </div>
+
+
+  <!-- 生年月日 -->
+  <div class="field">
+
+    <label for="birthDate">
+      生年月日
+      <span class="required">必須</span>
+    </label>
+
+    <input
+      type="date"
+      id="birthDate"
+      autocomplete="bday"
+    >
+
+    <small class="field-note">
+      ご本人の生年月日をご入力ください。
+    </small>
+
+    <p
+      class="error-message"
+      id="birthDateError"
+    ></p>
+
+  </div>
+
+
+  <!-- 本人による年齢確認 -->
+  <div class="field">
+
+    <label for="ageConfirmation">
+      年齢確認
+      <span class="required">必須</span>
+    </label>
+
+    <p class="step-description age-confirm-text">
+      所属申込にあたり、現在18歳以上であることを確認します。<br>
+      18歳以上の場合は、下の入力欄に
+      <strong>「はい」</strong>と入力してください。
+    </p>
+
+    <input
+      type="text"
+      id="ageConfirmation"
+      placeholder="はい"
+      autocomplete="off"
+    >
+
+    <small class="field-note">
+      生年月日から算出した年齢が18歳以上の場合のみ、次へ進めます。
+    </small>
+
+    <p
+      class="error-message"
+      id="ageError"
+    ></p>
+
+  </div>
+
+
+  <button
+    type="button"
+    class="primary-button"
+    id="ageNextButton"
+  >
+    次へ
+    <span>→</span>
+  </button>
+
+</section>
+
+
+<!-- =========================
+     AGE NG
+========================== -->
+<section class="step" id="ageRejected">
+
+  <div class="result-card">
+
+    <div class="result-icon">!</div>
+
+    <p class="step-number">
+      AGE REQUIREMENT
+    </p>
+
+    <h2>
+      現在はご応募いただけません
+    </h2>
+
+    <p>
+      ONE AGENCYでは、18歳以上の方を<br>
+      所属対象としています。
+    </p>
+
+    <p>
+      18歳を迎えられましたら、<br>
+      改めてご応募ください。
+    </p>
+
+  </div>
+
+</section>
+
+
+      <!-- =========================
+           STEP 02
+           基本情報
+      ========================== -->
+      <section class="step" id="step2">
+
+        <div class="step-heading">
+          <p class="step-number">STEP 02</p>
+          <h2>あなたについて</h2>
+
+          <p class="step-description">
+            活動に必要な基本情報をご入力ください。
+          </p>
+        </div>
+
+
+        <!-- 活動名 -->
+        <div class="field">
+
+          <label for="activityName">
+            活動名
+            <span class="required">必須</span>
+          </label>
+
+          <input
+            type="text"
+            id="activityName"
+            placeholder="例：汐音るな"
+            autocomplete="off"
+          >
+
+          <small class="field-note">
+            まだ決まっていない場合は「未定」とご入力ください。
+          </small>
+
+          <p class="error-message"></p>
+
+        </div>
+
+
+        <!-- TikTok アカウント名 -->
+        <div class="field">
+
+          <label for="tiktokName">
+            TikTokアカウント名
+            <span class="required">必須</span>
+          </label>
+
+          <input
+            type="text"
+            id="tiktokName"
+            placeholder="TikTokで表示されている名前"
+            autocomplete="off"
+          >
+
+          <p class="error-message"></p>
+
+        </div>
+
+
+        <!-- TikTok ID -->
+        <div class="field">
+
+          <label for="tiktokId">
+            TikTok ID
+            <span class="required">必須</span>
+          </label>
+
+          <input
+            type="text"
+            id="tiktokId"
+            placeholder="@から始まるID"
+            autocomplete="off"
+          >
+
+          <small class="field-note">
+            例：@oneagency
+          </small>
+
+          <p class="error-message"></p>
+
+        </div>
+
+
+        <!-- 配信経験 -->
+        <div class="field">
+
+          <div class="question-title">
+            配信経験
+            <span class="required">必須</span>
+          </div>
+
+          <div class="choice-list">
+
+            <label class="select-card compact">
+              <input
+                type="radio"
+                name="experience"
+                value="未経験"
+              >
+              <span class="radio-ui"></span>
+              <span class="select-text">
+                <strong>未経験</strong>
+              </span>
+            </label>
+
+
+            <label class="select-card compact">
+              <input
+                type="radio"
+                name="experience"
+                value="TikTok LIVE経験あり"
+              >
+              <span class="radio-ui"></span>
+              <span class="select-text">
+                <strong>TikTok LIVE経験あり</strong>
+              </span>
+            </label>
+
+
+            <label class="select-card compact">
+              <input
+                type="radio"
+                name="experience"
+                value="その他の配信経験あり"
+              >
+              <span class="radio-ui"></span>
+              <span class="select-text">
+                <strong>その他の配信経験あり</strong>
+              </span>
+            </label>
+
+          </div>
+
+          <p class="error-message" id="experienceError"></p>
+
+        </div>
+
+
+        <!-- 他事務所 -->
+        <div class="field">
+
+          <div class="question-title">
+            現在、ほかのライバー事務所・エージェンシーに所属していますか？
+            <span class="required">必須</span>
+          </div>
+
+          <div class="choice-list">
+
+            <label class="select-card compact">
+              <input
+                type="radio"
+                name="agency"
+                value="所属していない"
+              >
+              <span class="radio-ui"></span>
+              <span class="select-text">
+                <strong>所属していない</strong>
+              </span>
+            </label>
+
+
+            <label class="select-card compact">
+              <input
+                type="radio"
+                name="agency"
+                value="所属している"
+              >
+              <span class="radio-ui"></span>
+              <span class="select-text">
+                <strong>所属している</strong>
+              </span>
+            </label>
+
+          </div>
+
+          <p class="error-message" id="agencyError"></p>
+
+        </div>
+
+
+        <div class="button-row">
+
+          <button
+            type="button"
+            class="secondary-button"
+            data-back="1"
+          >
+            ← 戻る
+          </button>
+
+          <button
+            type="button"
+            class="primary-button"
+            id="step2Next"
+          >
+            次へ →
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           STEP 03
+           活動について
+      ========================== -->
+      <section class="step" id="step3">
+
+        <div class="step-heading">
+
+          <p class="step-number">STEP 03</p>
+
+          <h2>やってみたいこと</h2>
+
+          <p class="step-description">
+            ONEで挑戦してみたい活動を教えてください。
+          </p>
+
+        </div>
+
+
+        <div class="field">
+
+          <div class="question-title">
+            興味のある活動
+            <span class="required">必須</span>
+          </div>
+
+          <small class="field-note">
+            複数選択できます。
+          </small>
+
+
+          <div class="checkbox-grid">
+
+            <label class="check-card">
+              <input
+                type="checkbox"
+                name="activities"
+                value="雑談配信"
+              >
+              <span>雑談配信</span>
+            </label>
+
+
+            <label class="check-card">
+              <input
+                type="checkbox"
+                name="activities"
+                value="ゲーム配信"
+              >
+              <span>ゲーム配信</span>
+            </label>
+
+
+            <label class="check-card">
+              <input
+                type="checkbox"
+                name="activities"
+                value="歌配信"
+              >
+              <span>歌配信</span>
+            </label>
+
+
+            <label class="check-card">
+              <input
+                type="checkbox"
+                name="activities"
+                value="企画・参加型配信"
+              >
+              <span>企画・参加型</span>
+            </label>
+
+
+            <label class="check-card">
+              <input
+                type="checkbox"
+                name="activities"
+                value="イラストを使用した配信"
+              >
+              <span>イラスト配信</span>
+            </label>
+
+
+            <label class="check-card">
+              <input
+                type="checkbox"
+                name="activities"
+                value="まだ決まっていない"
+              >
+              <span>まだ決まっていない</span>
+            </label>
+
+
+            <label class="check-card">
+              <input
+                type="checkbox"
+                name="activities"
+                value="その他"
+                id="otherActivityCheck"
+              >
+              <span>その他</span>
+            </label>
+
+          </div>
+
+          <p class="error-message" id="activitiesError"></p>
+
+        </div>
+
+
+        <!-- その他詳細 -->
+        <div
+          class="field hidden"
+          id="otherActivityField"
+        >
+
+          <label for="otherActivity">
+            その他の活動
+          </label>
+
+          <input
+            type="text"
+            id="otherActivity"
+            placeholder="やってみたい活動をご入力ください"
+          >
+
+        </div>
+
+
+        <!-- 自由記述 -->
+        <div class="field">
+
+          <label for="notes">
+            相談したいこと・伝えておきたいこと
+            <span class="optional">任意</span>
+          </label>
+
+          <textarea
+            id="notes"
+            rows="6"
+            placeholder="活動について相談したいことなどがあればご記入ください。"
+          ></textarea>
+
+        </div>
+
+
+        <div class="button-row">
+
+          <button
+            type="button"
+            class="secondary-button"
+            data-back="2"
+          >
+            ← 戻る
+          </button>
+
+          <button
+            type="button"
+            class="primary-button"
+            id="step3Next"
+          >
+            確認する →
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           STEP 04
+           確認
+      ========================== -->
+      <section class="step" id="step4">
+
+        <div class="step-heading">
+
+          <p class="step-number">STEP 04</p>
+
+          <h2>入力内容の確認</h2>
+
+          <p class="step-description">
+            内容をご確認のうえ、応募を送信してください。
+          </p>
+
+        </div>
+
+
+        <div
+          class="confirmation-card"
+          id="confirmationContent"
+        >
+          <!-- JavaScriptで内容を表示 -->
+        </div>
+
+
+        <label class="agreement-card">
+
+          <input
+            type="checkbox"
+            id="agreement"
+          >
+
+          <span class="checkbox-ui"></span>
+
+          <span>
+            入力内容に間違いがないことを確認しました。
+          </span>
+
+        </label>
+
+        <p
+          class="error-message"
+          id="agreementError"
+        ></p>
+
+
+        <div class="button-row">
+
+          <button
+            type="button"
+            class="secondary-button"
+            data-back="3"
+          >
+            ← 修正する
+          </button>
+
+          <button
+            type="submit"
+            class="primary-button submit-button"
+            id="submitButton"
+          >
+            <span class="submit-text">
+              応募する
+            </span>
+
+            <span
+              class="loading-text hidden"
+            >
+              送信中...
+            </span>
+          </button>
+
+        </div>
+
+      </section>
+
+    </form>
+
+
+    <!-- =========================
+         COMPLETE
+    ========================== -->
+    <section
+      class="step"
+      id="completeScreen"
+    >
+
+      <div class="complete-card">
+
+        <div class="complete-mark">
+          ✓
+        </div>
+
+        <p class="step-number">
+          APPLICATION COMPLETE
+        </p>
+
+        <h2>
+          ご応募ありがとうございます
+        </h2>
+
+        <p>
+          ONE AGENCYへの所属応募を<br>
+          受け付けました。
+        </p>
+
+        <div class="complete-divider"></div>
+
+        <p>
+          続いて、面談日時のご予約をお願いいたします。
+        </p>
+
+
+        <!--
+          script.js側でURLを設定します
+        -->
+        <a
+          href="#"
+          id="interviewButton"
+          class="primary-button interview-button"
+        >
+          面談を予約する →
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SEND ERROR
+    ========================== -->
+    <section
+      class="step"
+      id="sendErrorScreen"
+    >
+
+      <div class="result-card">
+
+        <div class="result-icon">!</div>
+
+        <p class="step-number">
+          SEND ERROR
+        </p>
+
+        <h2>
+          送信できませんでした
+        </h2>
+
+        <p>
+          通信状況をご確認のうえ、<br>
+          もう一度お試しください。
+        </p>
+
+        <button
+          type="button"
+          class="primary-button"
+          id="retryButton"
+        >
+          入力画面へ戻る
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="footer">
+
+      <div class="footer-line"></div>
+
+      <strong>ONE AGENCY</strong>
+
+      <p>
+        「やってみたい」を、カタチに。
+      </p>
+
+    </footer>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
